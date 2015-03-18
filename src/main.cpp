@@ -157,7 +157,7 @@ int main(int argc, char * argv[])
     {
         Model_OBJ objet;
         cout << "Chargement de " << "models/"+to_string(i)+".obj" << endl;
-        objet.Load("models/"+to_string(i)+".obj");
+        objet.Load("../models/"+to_string(i)+".obj");
         objets.push_back(objet);
     }
 
@@ -172,7 +172,7 @@ int main(int argc, char * argv[])
           "\tESC - quit the program" << endl;
 
    // Creating the ArUco object with camera parameters
-   arucoManager = new ArUco("camera.yml", markerSize);
+   arucoManager = new ArUco("../camera.yml", markerSize);
    std::cout<<"ArUco OK"<<std::endl;
 
    // Creating the OpenCV capture

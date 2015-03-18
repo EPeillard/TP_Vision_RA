@@ -159,14 +159,15 @@ void ArUco::drawScene() {
       glTranslatef(0.0f,-0.05f,0.0f);
       glScalef(0.2f*m_MarkerSize ,0.2f*m_MarkerSize, 0.2f*m_MarkerSize );
 
-    objets[0].Draw();
+    //---------------------------------
+    //joueur-> play (nMarker)
+    objets[2].Draw();
+    //----------------------------------
 
       // Re-enabling light if it is on
       if(lightOn) {
          glEnable(GL_LIGHTING);
       }
-
-      //objet.Release();
 
       glPopMatrix();
    }
