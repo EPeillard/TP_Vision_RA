@@ -28,6 +28,9 @@
 
 #include <aruco/aruco.h>
 
+#include "ObjLoader.h"
+#include "Jeu.h"
+
 
 using namespace cv;
 using namespace aruco;

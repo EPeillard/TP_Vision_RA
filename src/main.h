@@ -37,7 +37,9 @@
 //#include <GLUT/glut.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
+
 #include "ObjLoader.h"
+#include "Jeu.h"
 
 // ArUco
 #include "ArUco-OpenGL.h"

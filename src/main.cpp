@@ -12,8 +12,9 @@
 
 using namespace aruco;
 
-
 vector<Model_OBJ> objets;
+
+Jeu mainGame;
 
 // number of the camera used. usually 0 for internal
 const int cameraId = 0;
@@ -81,9 +82,11 @@ void keyboard(unsigned char key, int x, int y) {
       case KEY_ESCAPE:
          exitFunction();
          exit(0);
-    break;
-
-      default:
+        break;
+    case 'r':
+        mainGame.rejouer();
+        break;
+    default:
          break;
 	}
 
@@ -91,7 +94,6 @@ void keyboard(unsigned char key, int x, int y) {
 
 // Loop function
 void doWork() {
-
    // Showing images
    imshow(windowNameCapture, curImg);
 
@@ -160,6 +162,9 @@ int main(int argc, char * argv[])
         objet.Load("../models/"+to_string(i)+".obj");
         objets.push_back(objet);
     }
+
+
+    Jeu mainGame;
 
    // OpenGL/GLUT Initialization
    glutInit(&argc, argv);

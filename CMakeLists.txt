@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(arucoMinimal)
 
-SET(CMAKE_MODULE_PATH /usr/local/lib/cmake)
+SET(CMAKE_MODULE_PATH /usr/local/lib/cmake/)
 
 find_package(aruco REQUIRED)
 find_package(OpenCV REQUIRED)

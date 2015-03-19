@@ -6,11 +6,10 @@
 //  Copyright (c) 2013 Centrale Innovation. All rights reserved.
 //
 
-#include <iostream>
 #include "ArUco-OpenGL.h"
-#include "ObjLoader.h"
 
 extern vector<Model_OBJ> objets;
+extern Jeu mainGame;
 
 // Constructor
 ArUco::ArUco(string intrinFileName, float markerSize) {
@@ -107,10 +106,12 @@ void ArUco::drawScene() {
 
    double modelview_matrix[16];
    std::cout << "Number of markers: " << m_Markers.size() << std::endl;
-   // For each detected marker
+
+    //Refresh the game
+    mainGame.jouer(m_Markers);
 
 
-
+   // For each detected
    for (unsigned int m=0;m<m_Markers.size();m++)
    {
       m_Markers[m].glGetModelViewMatrix(modelview_matrix);
@@ -125,19 +126,9 @@ void ArUco::drawScene() {
          glDisable(GL_LIGHTING);
       }
 
-      // Drawing axis
-      //drawAxis(m_MarkerSize);
-
-      // Drawing a cube
-      glColor3f(1,0.4f,0.4f);
-      //glTranslatef(0, m_MarkerSize/2,0);
-
-      //glPushMatrix();
-
-      //glutWireCube( m_MarkerSize );
 
 
-     // test initialisation:
+     // Initialisation:
 
      GLfloat amb_light[] = { 0.1, 0.1, 0.1, 1.0 };
     GLfloat diffuse[] = { 0.6, 0.6, 0.6, 1 };
@@ -157,11 +148,9 @@ void ArUco::drawScene() {
 
 
       glTranslatef(0.0f,-0.05f,0.0f);
-      glScalef(0.2f*m_MarkerSize ,0.2f*m_MarkerSize, 0.2f*m_MarkerSize );
 
     //---------------------------------
-    //joueur-> play (nMarker)
-    objets[2].Draw();
+    mainGame.afficher(m_Markers[m].id);
     //----------------------------------
 
       // Re-enabling light if it is on
